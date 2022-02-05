@@ -5,7 +5,7 @@ import { Input } from './Input';
 m.mount(document.getElementById('app'), {
   view: () =>
     m('div',
-      m('h2', 'mithril esbuild starter'),
+      m('h1', 'mithril esbuild starter'),
       m(Counter),
       m(Input)
     )
