@@ -10,6 +10,8 @@ export function bundle(config = {}) {
     entryPoints: [ENTRY],
     bundle: true,
     outfile: OUTFILE,
+    jsxFactory: 'm',
+    jsxFragment: '"["',
     ...config
   });
 }
