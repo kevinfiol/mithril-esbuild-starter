@@ -5,10 +5,10 @@
 		"start": "node ./scripts/start.js"
 	},
 	"dependencies": {
-		"mithril": "^2.0.4"
+		"mithril": "^2.2.2"
 	},
 	"devDependencies": {
-		"esbuild": "^0.14.18",
+		"esbuild": "^0.14.47",
 		"servor": "^4.0.2"
 	}
 }
