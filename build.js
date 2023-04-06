@@ -3,7 +3,7 @@ import { resolve } from 'path';
 
 const PORT = 8080;
 const DEV = process.argv.includes('--dev');
-const OUTFILE = resolve('dist/app.js');
+const OUTFILE = resolve('public/app.js');
 const ENTRY = resolve('src/index.js');
 
 /** @type {esbuild.BuildOptions} **/
@@ -42,7 +42,7 @@ const esbuildConfig = {
     await ctx.watch();
 
     await ctx.serve({
-      servedir: resolve('dist'),
+      servedir: resolve('public'),
       port: PORT
     });
 
