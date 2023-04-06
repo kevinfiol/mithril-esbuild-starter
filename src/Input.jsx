@@ -4,7 +4,7 @@ export const Input = () => {
   let value = '';
 
   return {
-    view: () =>
+    view: () => (
       <>
         <h2>JSX Input Component</h2>
         <input
@@ -13,7 +13,8 @@ export const Input = () => {
           oninput={({ target }) => value = target.value}
         />
 
-        <h3>{ value || 'type some text above' }</h3>
+        <h3>{ value || 'this component uses JSX' }</h3>
       </>
+    )
   };
 }

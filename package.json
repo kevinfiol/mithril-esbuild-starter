@@ -1,14 +1,13 @@
 {
 	"type": "module",
 	"scripts": {
-		"build": "node ./scripts/build.js",
-		"start": "node ./scripts/start.js"
+		"build": "node build.js",
+		"dev": "node build.js --dev"
 	},
 	"dependencies": {
-		"mithril": "^2.0.4"
+		"mithril": "^2.2.2"
 	},
 	"devDependencies": {
-		"esbuild": "^0.14.18",
-		"servor": "^4.0.2"
+		"esbuild": "0.17.15"
 	}
 }
