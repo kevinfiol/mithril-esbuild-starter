@@ -1,5 +1,7 @@
 # Mithril ESBuild Starter
 
+A [Mithril.js](https://mithril.js.org) starter template.
+
 ```bash
 # Clone this project
 npx degit kevinfiol/mithril-esbuild-starter hello-world
@@ -11,7 +13,7 @@ cd ./hello-world/
 npm install
 
 # Watch for changes
-npm run start
+npm run dev
 
 # Build
 npm run build
