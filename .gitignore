@@ -1,4 +1,4 @@
 node_modules
 .DS_Store
-dist/app.js
+public/app.js
 *.map

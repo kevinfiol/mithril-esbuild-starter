@@ -1,13 +1,13 @@
 import esbuild from 'esbuild';
 import { resolve } from 'path';
 
-const PORT = 8080;
+const PORT = 8091;
 const DEV = process.argv.includes('--dev');
 const OUTFILE = resolve('public/app.js');
 const ENTRY = resolve('src/index.js');
 
 /** @type {esbuild.BuildOptions} **/
-const esbuildConfig = {
+const config = {
   format: 'iife',
   entryPoints: [ENTRY],
   outfile: OUTFILE,
@@ -23,22 +23,15 @@ const esbuildConfig = {
     name: 'on-end',
     setup(build) {
       build.onEnd(({ errors }) => {
-        if (errors[0]) {
-          console.error('Bundling Failed!', errors[0]);
-          return;
-        }
-
-        console.log('Bundled: ', OUTFILE);
+        if (!errors.length) console.log('Bundled: ', OUTFILE);
       });
     }
   }]
 };
 
 (async () => {
-  // create & configure context
-  const ctx = await esbuild.context(esbuildConfig);
-
   if (DEV) {
+    const ctx = await esbuild.context(config);
     await ctx.watch();
 
     await ctx.serve({
@@ -46,9 +39,9 @@ const esbuildConfig = {
       port: PORT
     });
 
-    console.log(`Listening on port ${PORT}...`);
+    console.log(`Listening at http://localhost:${PORT}...`);
     process.on('exit', ctx.dispose);
   } else {
-    ctx.rebuild().finally(ctx.dispose);
+    await esbuild.build(config);
   }
 })();
